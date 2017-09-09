@@ -24,7 +24,6 @@ export class Personnage {
 
         }
         else {
-            /* console.log(`${this.name} à survécu à l'attaque !`) */
             return false
         }
     }
