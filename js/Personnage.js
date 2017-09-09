@@ -6,22 +6,15 @@ export class Personnage {
     }
 
     attack(victim) {
-        /* console.log(`${this.name} inflige ${this.dammage} de point de dégat à ${victim.name}.`) */
+        console.log(`${this.name} inflige ${this.dammage} de point de dégat à ${victim.name}.`)
         victim.sustain(this)
     }
 
     sustain(attack) {
         this.hp -= attack.dammage
         this.survive()
-        /* if(attack.critChance === true){
-            let normalDommage = attack.dammage;
-            console.log(normalDommage);
-        }
-        else{ */
-            
-            /* console.log(`il reste ${this.hp} point de vie à ${this.name}`) */
-            
-        /* } */
+        console.log(normalDommage);
+        console.log(`il reste ${this.hp} point de vie à ${this.name}`)
         
     }
 
