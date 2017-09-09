@@ -6,15 +6,37 @@ export class Personnage {
     }
 
     attack(victim) {
-        console.log(`${this.name} inflige ${this.dammage} de point de dégat à ${victim.name}.`)
+        /* console.log(`${this.name} inflige ${this.dammage} de point de dégat à ${victim.name}.`) */
         victim.sustain(this)
     }
 
     sustain(attack) {
         this.hp -= attack.dammage
-        console.log(`il reste ${this.hp} point de vie à ${this.name}`)
         this.survive()
+        /* if(attack.critChance === true){
+            let normalDommage = attack.dammage;
+            console.log(normalDommage);
+        }
+        else{ */
+            
+            /* console.log(`il reste ${this.hp} point de vie à ${this.name}`) */
+            
+        /* } */
+        
     }
+
+    /* critDommage(){
+        let critChance = Math.round(Math.random() * 5);
+        
+        if(critChance === 1){
+            console.log('test');
+            return true;
+        }
+        else{
+            console.log('test');
+            return false;
+        }
+    } */
 
     survive() {
         if (this.hp <= 0) {
