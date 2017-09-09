@@ -12,22 +12,20 @@ export class Personnage {
 
     sustain(attack) {
         this.hp -= attack.dammage
+        console.log(`il reste ${this.hp} point de vie à ${this.name}`)
         this.survive()
-        console.log('-----------------------------------------------------')
-        /* console.log(`il reste ${this.hp} point de vie à ${this.name} `) */
     }
 
     survive() {
-        if (this.hp === 0 || Math.sign(this.hp) === -1) {
-            console.log('-----------------------------------------------------')
-            console.log(`${this.name} est mort`); 
-            this.hp = 0;
-            return true;
+        if (this.hp <= 0) {
+            console.log(`${this.name} est mort`)
+            this.hp = 0
+            return true
+
         }
         else {
-            console.log('-----------------------------------------------------')
-            /* console.log(`${this.name} à survécu à l'attaque !`); */
-            return false;
+            /* console.log(`${this.name} à survécu à l'attaque !`) */
+            return false
         }
     }
 }

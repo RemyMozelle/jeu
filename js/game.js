@@ -2,27 +2,36 @@ import { Personnage } from './Personnage.js'
 import { Hero } from './Hero.js'
 import { Minion } from './Minion.js'
 
-let denilson = new Hero('denilson', 200, 25, 0)
-let minion = new Minion('minion', 30, 100)
+let denilson = new Hero('denilson', 200, 25, 100)
+let minion = new Minion('minion', 300, 25)
 
-let tour = 0
 
-while (tour < 2) {
-    let bonusHp = Math.round(Math.random() * 5);
-    let bonusArmor = Math.round(Math.random() * 3);
+while (denilson.survive() === false || minion.survive() === false) {
 
-    if (bonusHp === 1) {
-        denilson.bonusHp()
+    let gainHp = Math.round(Math.random() * 5)
+    let gainArmor = Math.round(Math.random() * 3)
+
+    if (minion.hp <= 0) {
+        break
     }
 
-    if (bonusArmor === 1) {
-        denilson.bonusArmor()
+    if (denilson.hp <= 0) {
+        break
     }
-    if(denilson.survive() === false){ console.log('NICE');}
-    if(minion.survive() === false){ console.log('NICE');}
-    denilson.attack(minion)
-    minion.attack(denilson)
-    tour++
+
+    if (denilson.hp > 0) {
+        if (gainArmor === 1) {
+            denilson.bonusArmor()
+        }
+
+        if (gainHp === 1) {
+            denilson.bonusHp()
+        }
+        denilson.attack(minion)
+    }
+
+    if (minion.hp > 0) {
+        minion.attack(denilson)
+    }
+    console.log('-----------------------------------------------------')
 }
-
-console.log(denilson, minion);

@@ -23,13 +23,11 @@ export class Hero extends Personnage {
             this.armor -= attack.dammage
 
             if (this.armor > 0) {
-                console.log('-----------------------------------------------------')
-                /* console.log(`il reste encore ${this.armor} d'armure à ${this.name}`) */
+                console.log(`il reste encore ${this.armor} d'armure à ${this.name}`)
             }
 
             if (Math.sign(this.armor) === -1 || this.armor === 0) {
-                console.log('-----------------------------------------------------')
-                /* console.log(`${this.name} n'a plus d'armure !`) */
+                console.log(`${this.name} n'a plus d'armure !`)
                 this.armor = 0
             }
         }
@@ -37,7 +35,7 @@ export class Hero extends Personnage {
         if (this.armor <= 0) {
             this.hp -= dammage
         }
-
+        console.log(`il reste ${this.hp} point de vie à ${this.name}`)
         this.survive()
     }
 }
