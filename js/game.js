@@ -23,9 +23,23 @@ dammage[1].innerHTML = minion.dammage
 armor.innerHTML = denilson.armor
 
 
-attack.addEventListener('click', (e) => {
-    denilson.attack(minion);
-    minion.attack(denilson);
+attack.addEventListener('click', () => {
+
+
+    let gainHp = Math.round(Math.random() * 5)
+    let gainArmor = Math.round(Math.random() * 3)
+
+    if (denilson.hp > 0) {
+        denilson.attack(minion)
+    }
+
+    if (minion.hp > 0) {
+        minion.attack(denilson)
+    }
+
+    if (minion.hp <= 0 || denilson.hp <= 0) {
+        break
+    }
 
     life[0].innerHTML = denilson.hp
     life[1].innerHTML = minion.hp
@@ -34,5 +48,4 @@ attack.addEventListener('click', (e) => {
     dammage[1].innerHTML = minion.dammage
 
     armor.innerHTML = denilson.armor
-    console.log(e);
 })
