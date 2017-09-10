@@ -14,8 +14,18 @@ let attack = document.querySelector('button')
 name[0].innerHTML = denilson.name
 name[1].innerHTML = minion.name
 
+life[0].innerHTML = denilson.hp
+life[1].innerHTML = minion.hp
+
+dammage[0].innerHTML = denilson.dammage
+dammage[1].innerHTML = minion.dammage
+
+armor.innerHTML = denilson.armor
+
+
 attack.addEventListener('click', (e) => {
     denilson.attack(minion);
+    minion.attack(denilson);
 
     life[0].innerHTML = denilson.hp
     life[1].innerHTML = minion.hp
