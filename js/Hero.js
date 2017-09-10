@@ -7,13 +7,33 @@ export class Hero extends Personnage {
     }
 
     bonusHp() {
-        console.log(`${this.name} gagne 50 point de vie !`)
-        this.hp += 50
+        let bonushp = Math.round(Math.random() * 5);
+
+        if (this.survive() === true && this.hp > 0) {
+            if (bonushp === 1) {
+                this.hp += 50
+
+            }
+        }
+
+        else {
+            this.survive()
+        }
     }
 
     bonusArmor() {
-        console.log(`${this.name} gagne 20 d'armure !`)
-        this.armor += 20
+        let bonusarmor = Math.round(Math.random() * 3);
+        console.log(bonusarmor)
+        if (this.survive() === true && this.hp > 0) {
+            if (bonusarmor === 1) {
+                this.armor += 20
+
+            }
+        }
+
+        else {
+            this.survive()
+        }
     }
 
     sustain(attack) {
